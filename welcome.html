@@ -1,0 +1,215 @@
+<!DOCYPTE html>
+<html>
+    <head>
+        <title>About</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                background: black;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .container {
+                display: block;
+                max-width: 1300px;
+                width: 100%;
+                height: 1000px;
+                margin: 0 auto;
+                /* border: 1px solid black; */
+                box-sizing: border-box;
+            }
+            .title {
+                color: #007bff;
+                font-size: 50px;
+                text-align: center;
+                font-weight: bold;
+            }
+            .subtitle {
+                color: #007bff;
+                font-size: 30px;
+                text-align: center;
+                font-weight: bold;
+            }
+            .row {
+                display: flex;
+                width: 100%;
+                height: 500px;
+                margin-top: 20px;
+                /* border: 1px solid black; */
+                box-sizing: border-box;
+            }
+            .normal-row {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                height: 500px;
+                margin-top: 20px;
+                box-sizing: border-box;
+            }
+            .left {
+                position: relative;
+                display: block;
+                width: 300px;
+                height: 100%;
+                /* border: 1px solid black; */
+                box-sizing: border-box;
+            }
+            .right {
+                display: block;
+                width: 100%;
+                height: 100%;
+                /* border: 1px solid black; */
+                box-sizing: border-box;
+            }
+            .left .earth {
+                display: block;
+                margin: 100px auto 0 auto;
+                border-radius: 50%; 
+                transform: scale(1.2);
+            }
+            .left .trump {
+                position: absolute;
+                left: 20px;
+                top: 15px;
+                width: 200px;
+                transform: scale(1.2);
+            }
+            .right .title {
+                text-align: center;
+                font-family: 'Commande';
+                color: #F22613;
+            }
+            .right .content {
+                width: 92%;
+                margin: 0 auto 30px auto ;
+                font-size: 20px;
+                text-align: justify;
+                letter-spacing: 1px;
+                line-height: 1.5rem;
+                color: white;
+            }
+            .firegatesec {
+                width: 16%;
+                margin: 0;
+            }
+            .doorshape {
+                width: 100%;
+            }
+            .footprint {
+                position: relative;
+                left: 115px;
+                width: 70%;
+                top: 80px;
+                height: 100px;
+            }
+            .door span {
+                position: absolute;
+                bottom: -30px;
+                left: -17px;
+                color: #007bff;
+                white-space: nowrap;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="js/mdb.js"></script>
+    
+        <script type="text/javascript">
+            $(document).ready(function() {
+    
+    
+                $('.door').click(function() {
+                    $('.door').toggleClass('doorOpen');
+    
+                    $('.gateray').toggleClass('gaterayshow')
+                });
+    
+    
+            })
+        </script>
+    
+    
+    
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var audioElement = document.getElementById('gateaudio');
+    
+                audioElement.addEventListener('ended', function() {
+                    this.play();
+                }, false);
+    
+    
+    
+                $('#gatewaytoheaven').click(function() {
+                    audioElement.play();
+                    $("#status").text("Status: Playing");
+                });
+    
+    
+            });
+        </script>
+    
+        <script>
+            function say_hi() {
+                setTimeout(redirect, 3000);
+            }
+    
+            function redirect() {
+                window.location.href = "waiting_room.html"
+            }
+        </script>
+        <div class="container">
+            <p class="title">
+                Sh'ar Yashuv -  שאר ישוב
+            </p>
+            <p class="subtitle">
+                "A remnant of Israel, a remnant shall return." (Isaiah 10:20-21)
+            </p>
+            <div class="row">
+                <div class="left">
+                    <img class="trump" src="img/popo1.png"/>
+                    <img class="earth" src="video/earth.gif"/>
+                </div>
+                <div class="right">
+                    <p class="title">
+                        ReturningTenTribes.Org
+                    </p>
+                    <p class="content">
+                        This site’s mission is to facilitate the gathering and networking of the prophesied "Remnant of Israel" who will return early to the God of Israel in “the latter days.”  It gives a working definition of the biblically defined small group whose function is an intrinsic and vital component in the regathering of the Ten Tribes of Israel.  It seeks the establishment of networks of associated local assemblies for the Returning Ten Tribes in order to further the Divine Plan for Israel’s repentant Ten Tribes to return to their God and to their Covenant–related identity and obligations.  It does not provide a full comprehensive definition on the so-called “Lost” Ten Tribes of Israel in history and prophecy. For that please see http://www.britam.org and http://www.Hebrewnations.com.
+                    </p>
+                    <p class="content">
+                        To find out more follow the footsteps and read instructions along the way here and inside:
+                    </p>
+                </div>
+            </div>
+            <div class="normal-row">
+                <img class="footprint" src="img/shoeprint.png"/>
+                <div class="firegatesec">
+                    <img class="img-fluid" width="500" src="img/fire.gif">
+                    <div class="doorshape">
+                        <img class="img-fluid" src="img/gatebck.png">
+                    </div>
+                    <div class="gatedoor">
+                        <div class="backDoor" id="gatewaytoheaven">
+                            <div class="gateray"><img class="img-fluid" src="img/lighty.png"></div>
+                            <div class="door" onclick="say_hi()">
+                                <span>Knock On Door</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
