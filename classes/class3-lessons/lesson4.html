@@ -123,6 +123,11 @@
                 text-decoration: none;
                 color: #1261A0;
             }
+
+            .spinner {
+                display: block;
+                margin: 0 auto;
+            }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.4.456/build/pdf.min.js"></script>
     </head>
@@ -138,6 +143,7 @@
                 window.open('../../pdf/Class%203%20Lesson%20%234%20Psalm%2080%20Flagship%20Hymn.pdf').print();
             }
 
+            
             url = '../../pdf/Class%203%20Lesson%20%234%20Psalm%2080%20Flagship%20Hymn.pdf';
             var thePdf = null;
             var scale = 1;
@@ -145,13 +151,16 @@
             pdfjsLib.getDocument(url).promise.then(function(pdf) {
                 thePdf = pdf;
                 viewer = document.getElementById('pdf-viewer');
+                const loader = document.getElementById('spinner');
 
                 for(page = 1; page <= pdf.numPages; page++) {
-                canvas = document.createElement("canvas");    
-                canvas.className = 'pdf-page-canvas';         
-                viewer.appendChild(canvas);            
-                renderPage(page, canvas);
+                    canvas = document.createElement("canvas");    
+                    canvas.className = 'pdf-page-canvas';         
+                    viewer.appendChild(canvas);            
+                    renderPage(page, canvas);
                 }
+
+                loader.style.display = "none";
             });
 
             function renderPage(pageNumber, canvas) {
@@ -164,6 +173,7 @@
             }
 
         </script>
+        <img class="spinner" id="spinner" src="../../img/loader-spinner.gif" height="70"/>
         <div id="pdf-viewer">
         </div>
         <div class="link-container">
