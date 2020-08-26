@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Identity and Covenant Part I</title>
+        <style>
+            /* http://meyerweb.com/eric/tools/css/reset/ 
+                v2.0 | 20110126
+                License: none (public domain)
+            */
+
+            html, body, div, span, applet, object, iframe,
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+            a, abbr, acronym, address, big, cite, code,
+            del, dfn, em, img, ins, kbd, q, s, samp,
+            small, strike, strong, sub, sup, tt, var,
+            b, u, i, center,
+            dl, dt, dd, ol, ul, li,
+            fieldset, form, label, legend,
+            table, caption, tbody, tfoot, thead, tr, th, td,
+            article, aside, canvas, details, embed, 
+            figure, figcaption, footer, header, hgroup, 
+            menu, nav, output, ruby, section, summary,
+            time, mark, audio, video {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                font: inherit;
+                vertical-align: baseline;
+            }
+            /* HTML5 display-role reset for older browsers */
+            article, aside, details, figcaption, figure, 
+            footer, header, hgroup, menu, nav, section {
+                display: block;
+            }
+            body {
+                line-height: 1;
+            }
+            ol, ul {
+                list-style: none;
+            }
+            blockquote, q {
+                quotes: none;
+            }
+            blockquote:before, blockquote:after,
+            q:before, q:after {
+                content: '';
+                content: none;
+            }
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+            canvas {
+                display: block;
+                margin: 0 auto; 
+                /* width: 1000px;
+                height: 1000px;
+                border: 1px solid black;
+                margin: 0 auto; */
+            }
+
+            .header {
+                box-sizing: border-box;
+                position: sticky;
+                top: 0;
+                width: 100%;
+                height: 50px;
+                padding: 0 30px;
+                background: hsla(0, 0%, 0%, 0.9);
+                box-shadow: 3px 3px 10px gray;
+            }
+            .header a {
+                float: right;
+                padding: 10px;
+                border: 1px solid black;
+                margin: 5px;
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                font-family: 'Arial';
+                background: #ff8c00;
+                border-radius: 5px/5px;
+            }
+
+            .pdf-page-canvas {
+                
+            }
+
+            .link-container {
+                -webkit-display: flex;
+                -moz-display: flex;
+                -ms-display: flex;
+                -o-display: flex;
+                display: flex;
+                justify-content: space-evenly;
+                width: 820px;
+                height: 45px;
+                margin: 0 auto 30px auto;
+                font-family: 'coburn';
+            }
+
+            .link-container a {
+                text-decoration: none;
+                font-size: 25px;
+                color: #1261A0;
+            }
+
+            .misc-container {
+                width: 820px;
+                height: 45px;
+                margin: 0 auto 30px auto;
+                font-size: 25px;
+                font-family: 'Arial';
+                text-align: center;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .misc-container a {
+                font-size: 30px;
+                margin-left: 10px;
+                text-decoration: none;
+                color: #1261A0;
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.4.456/build/pdf.min.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <a href="../../pdf/Class_1_Lesson%20%231_PART_I_IDENTITY_and_COVENANT.pdf">Download</a>
+            <a href="#" onclick="print()">Print</a>
+        </div>
+        
+        <script>
+
+            function print() {
+                window.open('../../pdf/Class_1_Lesson%20%231_PART_I_IDENTITY_and_COVENANT.pdf').print();
+            }
+
+            url = '../../pdf/Class_1_Lesson%20%231_PART_I_IDENTITY_and_COVENANT.pdf';
+            var thePdf = null;
+            var scale = 1;
+
+            pdfjsLib.getDocument(url).promise.then(function(pdf) {
+                thePdf = pdf;
+                viewer = document.getElementById('pdf-viewer');
+
+                for(page = 1; page <= pdf.numPages; page++) {
+                canvas = document.createElement("canvas");    
+                canvas.className = 'pdf-page-canvas';         
+                viewer.appendChild(canvas);            
+                renderPage(page, canvas);
+                }
+            });
+
+            function renderPage(pageNumber, canvas) {
+                thePdf.getPage(pageNumber).then(function(page) {
+                    viewport = page.getViewport({scale:2});
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;          
+                    page.render({canvasContext: canvas.getContext('2d'), viewport: viewport});
+                });
+            }
+
+        </script>
+        <div id="pdf-viewer">
+        </div>
+        <div class="link-container">
+            <a href="study-page-lesson1-1.html">Study Page</a>
+            <a href="../../classes.html">List of All Classes</a>
+            <a href="../class1.html">Lessons Index</a>
+        </div>
+        <div class="misc-container">
+            <p>
+                End of Part I
+            </p>
+        </div>
+        <div class="misc-container">
+            <p>
+                Go to Part II <a href="lesson1-2.html">HERE</a>
+            </p>
+        </div>
+    </body>
+</html>
