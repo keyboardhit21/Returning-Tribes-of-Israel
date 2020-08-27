@@ -123,6 +123,11 @@
                 text-decoration: none;
                 color: #1261A0;
             }
+
+            .spinner {
+                display: block;
+                margin: 20px auto 20px auto;
+            }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.4.456/build/pdf.min.js"></script>
     </head>
@@ -145,6 +150,7 @@
             pdfjsLib.getDocument(url).promise.then(function(pdf) {
                 thePdf = pdf;
                 viewer = document.getElementById('pdf-viewer');
+                const loader = document.getElementById('spinner');
 
                 for(page = 1; page <= pdf.numPages; page++) {
                 canvas = document.createElement("canvas");    
@@ -152,6 +158,8 @@
                 viewer.appendChild(canvas);            
                 renderPage(page, canvas);
                 }
+                
+                loader.style.display = "none";
             });
 
             function renderPage(pageNumber, canvas) {
@@ -164,6 +172,7 @@
             }
 
         </script>
+        <img class="spinner" id="spinner" src="../../img/loader-spinner.gif" height="70"/>
         <div id="pdf-viewer">
         </div>
         <div class="link-container">
