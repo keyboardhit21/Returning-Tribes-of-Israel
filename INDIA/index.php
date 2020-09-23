@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Regain Your Identity</title>
+        <title>INDIA</title>
         <link rel="stylesheet" type="text/css" href="../css/article.css"/>
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
         <style>
